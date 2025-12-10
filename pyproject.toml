@@ -1,0 +1,19 @@
+[project]
+name = "library-fastapi-back"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "RomesAll",email = "romesky845@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi (>=0.124.2,<0.125.0)",
+    "uvicorn (>=0.38.0,<0.39.0)",
+    "pytest (>=9.0.2,<10.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
