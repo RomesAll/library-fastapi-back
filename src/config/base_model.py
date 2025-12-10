@@ -1,11 +1,14 @@
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, declared_attr
-from sqlalchemy import MetaData, ForeignKey
-from datetime import datetime
+from sqlalchemy import MetaData, ForeignKey, text
+from datetime import datetime, timezone
+
+def get_time_update() -> datetime:
+    return datetime.now(tz=timezone.utc)
 
 class Base(DeclarativeBase):
     id: Mapped[int] = mapped_column(primary_key=True)
-    created_at: datetime = mapped_column()
-    updated_at: datetime = mapped_column()
+    created_at: datetime = mapped_column(server_default=text("TIMEZONE('utc', now())"))
+    updated_at: datetime = mapped_column(server_default=text("TIMEZONE('utc', now())"), onupdate=get_time_update)
     metadata = MetaData()
 
     @declared_attr.directive
