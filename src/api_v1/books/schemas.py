@@ -24,3 +24,6 @@ class BookPATCHSchemas(BaseModel):
     count_pages: int | None = None
     price: float | None = None
     count_books: int | None = None
+
+class BookRelSchemas(BookGETSchemas):
+    books: list["ClientGETSchemas"]

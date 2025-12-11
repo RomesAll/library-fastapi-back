@@ -10,7 +10,7 @@ class ClientsORM(Base):
     phone_number: Mapped[str] = mapped_column(unique=True)
     password: Mapped[str] # = mapped_column(hash=True)
     
-    client_books: Mapped[list["BooksORM"]] = relationship(back_populates='', secondary='reservationsorm')
+    clients: Mapped[list["BooksORM"]] = relationship(back_populates='books', secondary='reservationsorm')
 
     def __init__(self, first_name, second_name, **kw):
         super().__init__(first_name=first_name, second_name=second_name, **kw)
