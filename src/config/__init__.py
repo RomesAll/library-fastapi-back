@@ -1,4 +1,5 @@
 __all__= (
-    'Base'
+    'Base', 'settings'
 )
-from base_model import Base
+from .base_model import Base
+from .project_config import settings

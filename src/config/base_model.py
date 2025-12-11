@@ -7,10 +7,9 @@ def get_time_update() -> datetime:
 
 class Base(DeclarativeBase):
     id: Mapped[int] = mapped_column(primary_key=True)
-    created_at: datetime = mapped_column(server_default=text("TIMEZONE('utc', now())"))
-    updated_at: datetime = mapped_column(server_default=text("TIMEZONE('utc', now())"), onupdate=get_time_update)
-    metadata = MetaData()
-
+    created_at: Mapped[datetime] = mapped_column(server_default=text("TIMEZONE('utc', now())"))
+    updated_at: Mapped[datetime] = mapped_column(server_default=text("TIMEZONE('utc', now())"), onupdate=get_time_update)
+    
     @declared_attr.directive
     def __tablename__(cls) -> str:
         return cls.__name__.lower()

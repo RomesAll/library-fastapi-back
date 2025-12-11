@@ -10,4 +10,4 @@ class BooksORM(Base):
     price: Mapped[float]
     count_books: Mapped[int]
 
-    book_client: Mapped[list["ClientsORM"]] = relationship(back_populates='', secondary='reservationsorm')
+    # book_client: Mapped[list["ClientsORM"]] = relationship(back_populates='', secondary='reservationsorm')
