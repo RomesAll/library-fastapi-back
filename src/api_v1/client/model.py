@@ -8,6 +8,7 @@ class ClientsORM(Base):
     address: Mapped[str]
     is_active: Mapped[bool] = mapped_column(default=False)
     phone_number: Mapped[str] = mapped_column(unique=True)
+    email: Mapped[str] = mapped_column(unique=True)
     password: Mapped[str] # = mapped_column(hash=True)
     
     clients: Mapped[list["BooksORM"]] = relationship(back_populates='books', secondary='reservationsorm')
